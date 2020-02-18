@@ -2,13 +2,11 @@ package racingcar.domain;
 
 import racingcar.domain.Generator.CarMoveValueGenerator;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Cars {
-    public static List<Car> winners = new ArrayList<>();
 
     private List<Car> cars;
 
@@ -25,13 +23,15 @@ public class Cars {
         }
     }
 
-    public void selectWinners() {
+    public List<Car> selectWinners() {
+        List<Car> winners;
         Car maxDistanceCar = cars.stream()
                 .max(Car::compareTo)
                 .get();
         winners = cars.stream()
                 .filter(car -> car.isMaxPosition(maxDistanceCar))
                 .collect(Collectors.toList());
+        return winners;
     }
 
     public List<Car> getCars() {

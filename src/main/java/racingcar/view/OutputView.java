@@ -3,6 +3,7 @@ package racingcar.view;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class OutputView {
@@ -40,15 +41,15 @@ public class OutputView {
         System.out.println();
     }
 
-    public static String getWinners() {
-        return Cars.winners.stream()
+    public static String getWinners(List<Car> winners) {
+        return winners.stream()
                 .map(Car::getName)
                 .collect(Collectors
                         .joining(","));
     }
 
-    public static void printWinnerResult() {
-        System.out.println(getWinners() + "가 최종 우승했습니다.");
+    public static void printWinnerResult(List<Car> winners) {
+        System.out.println(getWinners(winners) + "가 최종 우승했습니다.");
     }
 
     public static void printErrorMessage(String errorMessage) {

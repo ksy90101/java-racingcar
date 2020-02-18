@@ -32,7 +32,6 @@ public class Game {
     }
 
     private void printFinalResult() {
-        cars.selectWinners();
-        OutputView.printWinnerResult();
+        OutputView.printWinnerResult(cars.selectWinners());
     }
 }
