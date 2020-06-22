@@ -1,6 +1,8 @@
 package domain.car;
 
 public class Car {
+	private static final int MIN_MOVE_VALUE = 4;
+
 	private final Name name;
 	private Position position;
 
@@ -9,13 +11,17 @@ public class Car {
 		this.position = position;
 	}
 
-	public void moveCar(CarMoveStrategy carMoveStrategy){
-		if(carMoveStrategy.move() > 3){
+	public void moveCar(final CarMoveStrategy carMoveStrategy) {
+		if (carMoveStrategy.move() >= MIN_MOVE_VALUE) {
 			position = position.increasePosition();
 		}
 	}
 
 	public int getPosition() {
 		return position.getPosition();
+	}
+
+	public String getName() {
+		return name.getName();
 	}
 }
