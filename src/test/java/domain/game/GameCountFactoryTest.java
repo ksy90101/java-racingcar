@@ -23,4 +23,12 @@ public class GameCountFactoryTest {
 		assertThatThrownBy(() -> GameCountFactory.of(gameCountInput)).isInstanceOf(IllegalArgumentException.class)
 			.hasMessage("게임 횟수는 2 ~ 10만 가능합니다. gameCount = " + gameCountInput);
 	}
+
+	@DisplayName("숫자가 아닌 다른 값이 들어갔을 경우 예외처리")
+	@ParameterizedTest
+	@ValueSource(strings = {"a", "가", "-"})
+	void validateNotNumber(String gameCountInput) {
+		assertThatThrownBy(() -> GameCountFactory.of(gameCountInput)).isInstanceOf(NumberFormatException.class)
+			.hasMessage("숫자만 입력이 가능합니다. gameCount = " + gameCountInput);
+	}
 }
