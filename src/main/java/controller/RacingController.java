@@ -2,11 +2,11 @@ package controller;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 import java.util.stream.Collectors;
 
 import domain.car.Car;
 import domain.car.CarMoveStrategy;
+import domain.car.Cars;
 import domain.car.Name;
 import domain.car.Position;
 import domain.game.GameCount;
@@ -19,14 +19,15 @@ public class RacingController {
 
 	public void run() {
 		String inputCarNames = InputView.inputCarNames();
-		List<Car> cars = createCars(inputCarNames);
+		Cars cars = new Cars(createCars(inputCarNames));
 		String inputGameCount = InputView.inputGameCount();
 		GameCount gameCount = GameCountFactory.of(inputGameCount);
 		OutputView.runResultGuide();
 		for (int i = 0; i < gameCount.getGameCount(); i++){
-			cars.forEach(car -> car.moveCar(carMoveStrategy));
-			OutputView.runResult(cars);
+			cars.moveCars(carMoveStrategy);
+			OutputView.printRunResult(cars.getCars());
 		}
+		OutputView.printWinner(cars.getWinner());
 	}
 
 	private List<Car> createCars(final String inputCarNames) {

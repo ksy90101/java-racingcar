@@ -11,15 +11,24 @@ public class OutputView {
 	private static final String JOINING_DELIMITER = "";
 
 	public static void runResultGuide() {
+		System.out.println();
 		System.out.println("실행결과");
 	}
 
-	public static void runResult(List<Car> cars){
+	public static void printRunResult(List<Car> cars){
 		for (Car car : cars) {
 			System.out.printf("%s : %s", car.getName(), convertPositionSymbol(car));
 			System.out.println();
 		}
 		System.out.println();
+	}
+
+	public static void printWinner(List<Car> winners){
+		String winner = winners.stream()
+			.map(Car::getName)
+			.collect(Collectors.joining(", "));
+
+		System.out.println(winner + "가 최종 우승했습니다.");
 	}
 
 	private static String convertPositionSymbol(Car car){
