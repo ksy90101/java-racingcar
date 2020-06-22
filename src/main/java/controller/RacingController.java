@@ -2,6 +2,7 @@ package controller;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 import domain.car.Car;
@@ -18,18 +19,29 @@ public class RacingController {
 
 	private static final String SPLIT_DELIMITER = ",";
 	private static final CarMoveStrategy carMoveStrategy = () -> (int)(Math.random() * 10);
+	private static final Logger logger = Logger.getLogger("logger");
 
 	public void run() {
-		String inputCarNames = InputView.inputCarNames();
-		Cars cars = new Cars(createCars(inputCarNames));
-		String inputGameCount = InputView.inputGameCount();
-		GameCount gameCount = GameCountFactory.of(inputGameCount);
+		try {
+			String inputCarNames = InputView.inputCarNames();
+			Cars cars = new Cars(createCars(inputCarNames));
+			String inputGameCount = InputView.inputGameCount();
+			GameCount gameCount = GameCountFactory.of(inputGameCount);
+
+			moveCarsByGameCount(cars, gameCount);
+
+			OutputView.printWinner(cars.getWinner());
+		} catch (IllegalArgumentException e) {
+			logger.warning(e.getMessage());
+		}
+	}
+
+	private void moveCarsByGameCount(Cars cars, GameCount gameCount) {
 		OutputView.runResultGuide();
 		for (int i = 0; i < gameCount.getGameCount(); i++) {
 			cars.moveCars(carMoveStrategy);
 			OutputView.printRunResult(cars.getCars());
 		}
-		OutputView.printWinner(cars.getWinner());
 	}
 
 	private List<Car> createCars(final String inputCarNames) {
