@@ -1,8 +1,8 @@
-import view.InputView;
+import controller.RacingController;
 
 public class RacingCarApplication {
 	public static void main(String[] args) {
-		InputView.inputCarNames();
-		InputView.inputGameCount();
+		RacingController racingController = new RacingController();
+		racingController.run();
 	}
 }

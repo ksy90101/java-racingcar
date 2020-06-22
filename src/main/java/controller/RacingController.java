@@ -17,6 +17,8 @@ public class RacingController {
 		List<Car> cars = createCars(inputCarNames);
 		String inputGameCount = InputView.inputGameCount();
 		GameCount gameCount = GameCountFactory.of(inputGameCount);
+		for (int i = 0; i < gameCount.getGameCount(); i++){
+		}
 	}
 
 	private List<Car> createCars(final String inputCarNames) {
