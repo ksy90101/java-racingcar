@@ -11,7 +11,7 @@ public class NameTest {
 
 	@DisplayName("올바른 이름이 생성된다.")
 	@Test
-	void createCorrectName(){
+	void createCorrectName() {
 		Name jun = new Name("jun");
 		assertThat(jun.getName()).isEqualTo("jun");
 	}
@@ -26,7 +26,7 @@ public class NameTest {
 	@DisplayName("빈칸이 들어왔을 경우 예외처리하는 테스트 입니다.")
 	@ParameterizedTest
 	@ValueSource(strings = {"", " ", "     ",})
-	void createNameByBlank(String inputCarName){
+	void createNameByBlank(String inputCarName) {
 		assertThatThrownBy(() -> new Name(inputCarName)).isInstanceOf(IllegalArgumentException.class)
 			.hasMessage("이름에 공백만 들어갈 수 없습니다.");
 	}

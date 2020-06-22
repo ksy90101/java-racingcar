@@ -23,5 +23,4 @@ public class PositionFactoryTest {
 		assertThatThrownBy(() -> PositionFactory.of(position)).isInstanceOf(IllegalArgumentException.class)
 			.hasMessage("나올 수 없는 위치 입니다. position = " + position);
 	}
-
 }

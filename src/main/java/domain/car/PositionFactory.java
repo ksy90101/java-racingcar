@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class PositionFactory {
+
 	private static final List<Position> positions = IntStream.range(0, 11)
 		.mapToObj(Position::new)
 		.collect(Collectors.toList());

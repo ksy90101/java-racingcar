@@ -9,6 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class CarsTest {
+
 	private Cars cars;
 	private Car pobi;
 	private Car jun;
@@ -25,7 +26,7 @@ public class CarsTest {
 		cars = new Cars(Arrays.asList(pobi, jun, jason, brown));
 	}
 
-	@DisplayName("우승자 가져오기")
+	@DisplayName("우승자 선별하는 테스트")
 	@Test
 	void winner() {
 		assertThat(cars.getWinner()).containsExactly(jun, jason);
@@ -33,10 +34,9 @@ public class CarsTest {
 
 	@DisplayName("차들이 움직이는지 확인하는 테스트")
 	@Test
-	void moveCars(){
+	void moveCars() {
 		CarMoveStrategy carMoveStrategy = () -> 4;
 		cars.moveCars(carMoveStrategy);
 		assertThat(cars.getCars().get(0).getPosition()).isEqualTo(4);
 	}
-
 }

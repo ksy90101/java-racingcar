@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class CarTest {
+
 	@DisplayName("올바르게 차가 생성되는지 확인하는 테스트입니다.")
 	@Test
 	void createCorrectCar() {
@@ -17,7 +18,7 @@ public class CarTest {
 
 	@DisplayName("4 이상이면 전진하는 테스트")
 	@Test
-	void moveCarByOverFive(){
+	void moveCarByOverFive() {
 		CarMoveStrategy carMoveStrategy = () -> 4;
 		Car car = new Car(new Name("pobi"), PositionFactory.of(0));
 		car.moveCar(carMoveStrategy);
@@ -26,7 +27,7 @@ public class CarTest {
 
 	@DisplayName("4 미만이면 정지하는 테스트")
 	@Test
-	void moveCarByLessThenFive(){
+	void moveCarByLessThenFive() {
 		CarMoveStrategy carMoveStrategy = () -> 3;
 		Car car = new Car(new Name("pobi"), PositionFactory.of(0));
 		car.moveCar(carMoveStrategy);

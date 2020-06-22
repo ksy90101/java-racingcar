@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Cars {
+
 	private final List<Car> cars;
 
 	public Cars(final List<Car> cars) {
@@ -22,9 +23,9 @@ public class Cars {
 
 	private int getMaxPosition() {
 		return cars.stream()
-				.mapToInt(Car::getPosition)
-				.max()
-				.orElseThrow(() -> new IllegalArgumentException("최대값을 찾을 수 없습니다."));
+			.mapToInt(Car::getPosition)
+			.max()
+			.orElseThrow(() -> new IllegalArgumentException("최대값을 찾을 수 없습니다."));
 	}
 
 	public List<Car> getCars() {

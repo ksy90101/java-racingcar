@@ -1,11 +1,12 @@
 package domain.car;
 
 public class Position {
+
 	private static final int increaseValue = 1;
 
 	private final int position;
 
-	public Position(final int position) {
+	protected Position(final int position) {
 		this.position = position;
 	}
 
@@ -13,7 +14,7 @@ public class Position {
 		return position;
 	}
 
-	public Position increasePosition(){
+	public Position increasePosition() {
 		return PositionFactory.of(position + increaseValue);
 	}
 }

@@ -1,6 +1,7 @@
 package domain.car;
 
 public class Car {
+
 	private static final int MIN_MOVE_VALUE = 4;
 
 	private final Name name;

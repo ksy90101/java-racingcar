@@ -14,7 +14,7 @@ public class GameCountFactory {
 
 	}
 
-	public static GameCount of(final String gameCountInput){
+	public static GameCount of(final String gameCountInput) {
 		return gameCounts.stream()
 			.filter(gameCount -> gameCount.getGameCount() == Integer.parseInt(gameCountInput))
 			.findFirst()
