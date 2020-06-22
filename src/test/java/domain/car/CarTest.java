@@ -11,6 +11,7 @@ public class CarTest {
 	@Test
 	void createCorrectCar() {
 		Name name = new Name("jason");
-		assertThat(new Car(name, 0)).isNotNull();
+		Position position = new Position(0);
+		assertThat(new Car(name, position)).isNotNull();
 	}
 }
