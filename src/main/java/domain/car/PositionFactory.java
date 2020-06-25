@@ -5,8 +5,10 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class PositionFactory {
+	private static final int MIN_POSITION = 0;
+	private static final int MAX_POSITION = 11;
 
-	private static final List<Position> positions = IntStream.range(0, 11)
+	private static final List<Position> positions = IntStream.range(MIN_POSITION, MAX_POSITION)
 		.mapToObj(Position::new)
 		.collect(Collectors.toList());
 

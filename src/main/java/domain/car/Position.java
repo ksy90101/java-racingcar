@@ -6,7 +6,7 @@ public class Position {
 
 	private final int position;
 
-	protected Position(final int position) {
+	Position(final int position) {
 		this.position = position;
 	}
 

@@ -10,6 +10,7 @@ public class OutputView {
 
 	private static final String POSITION_SYMBOL = "-";
 	private static final String JOINING_DELIMITER = "";
+	private static final String JOINING_WINNER_DELIMITER = ", ";
 
 	public static void runResultGuide() {
 		System.out.println();
@@ -27,7 +28,7 @@ public class OutputView {
 	public static void printWinner(List<Car> winners) {
 		String winner = winners.stream()
 			.map(Car::getName)
-			.collect(Collectors.joining(", "));
+			.collect(Collectors.joining(JOINING_WINNER_DELIMITER));
 
 		System.out.println(winner + "가 최종 우승했습니다.");
 	}
