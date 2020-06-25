@@ -12,8 +12,8 @@ public class Car {
 		this.position = position;
 	}
 
-	public void moveCar(final CarMoveStrategy carMoveStrategy) {
-		if (carMoveStrategy.move() >= MIN_MOVE_VALUE) {
+	public void moveCar(final CarMoveValueStrategy carMoveValueStrategy) {
+		if (carMoveValueStrategy.create() >= MIN_MOVE_VALUE) {
 			position = position.increasePosition();
 		}
 	}

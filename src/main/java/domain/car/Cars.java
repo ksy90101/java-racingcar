@@ -12,8 +12,8 @@ public class Cars {
 		this.cars = cars;
 	}
 
-	public void moveCars(CarMoveStrategy carMoveStrategy) {
-		cars.forEach(car -> car.moveCar(carMoveStrategy));
+	public void moveCars(CarMoveValueStrategy carMoveValueStrategy) {
+		cars.forEach(car -> car.moveCar(carMoveValueStrategy));
 	}
 
 	public List<Car> getWinner() {

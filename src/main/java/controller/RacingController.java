@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 import domain.car.Car;
-import domain.car.CarMoveStrategy;
+import domain.car.CarMoveValueStrategy;
 import domain.car.Cars;
 import domain.car.Name;
 import domain.car.PositionFactory;
@@ -18,7 +18,7 @@ import view.OutputView;
 public class RacingController {
 
 	private static final String SPLIT_DELIMITER = ",";
-	private static final CarMoveStrategy carMoveStrategy = () -> (int)(Math.random() * 10);
+	private static final CarMoveValueStrategy CAR_MOVE_VALUE_STRATEGY = () -> (int)(Math.random() * 10);
 	private static final Logger logger = Logger.getLogger("logger");
 
 	public void run() {
@@ -39,7 +39,7 @@ public class RacingController {
 	private void moveCarsByGameCount(Cars cars, GameCount gameCount) {
 		OutputView.runResultGuide();
 		for (int i = 0; i < gameCount.getGameCount(); i++) {
-			cars.moveCars(carMoveStrategy);
+			cars.moveCars(CAR_MOVE_VALUE_STRATEGY);
 			OutputView.printRunResult(cars.getCars());
 		}
 	}

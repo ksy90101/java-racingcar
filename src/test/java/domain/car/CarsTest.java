@@ -35,8 +35,8 @@ public class CarsTest {
 	@DisplayName("차들이 움직이는지 확인하는 테스트")
 	@Test
 	void moveCars() {
-		CarMoveStrategy carMoveStrategy = () -> 4;
-		cars.moveCars(carMoveStrategy);
+		CarMoveValueStrategy carMoveValueStrategy = () -> 4;
+		cars.moveCars(carMoveValueStrategy);
 		assertThat(cars.getCars().get(0).getPosition()).isEqualTo(4);
 	}
 }

@@ -19,18 +19,18 @@ public class CarTest {
 	@DisplayName("4 이상이면 전진하는 테스트")
 	@Test
 	void moveCarByOverFive() {
-		CarMoveStrategy carMoveStrategy = () -> 4;
+		CarMoveValueStrategy carMoveValueStrategy = () -> 4;
 		Car car = new Car(new Name("pobi"), PositionFactory.of(0));
-		car.moveCar(carMoveStrategy);
+		car.moveCar(carMoveValueStrategy);
 		assertThat(car.getPosition()).isEqualTo(1);
 	}
 
 	@DisplayName("4 미만이면 정지하는 테스트")
 	@Test
 	void moveCarByLessThenFive() {
-		CarMoveStrategy carMoveStrategy = () -> 3;
+		CarMoveValueStrategy carMoveValueStrategy = () -> 3;
 		Car car = new Car(new Name("pobi"), PositionFactory.of(0));
-		car.moveCar(carMoveStrategy);
+		car.moveCar(carMoveValueStrategy);
 		assertThat(car.getPosition()).isEqualTo(0);
 	}
 }
